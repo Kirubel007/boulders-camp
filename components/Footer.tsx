@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { site, whatsappHref } from "@/lib/content";
+import GuideSignup from "./GuideSignup";
 
 export default function Footer() {
   return (
     <footer className="bg-night pb-24 pt-20 text-sand/80 md:pb-12">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-10">
+      <GuideSignup />
+      <div className="mx-auto mt-16 grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-10">
         <div className="md:col-span-5">
           <p className="eyebrow text-dusk">{site.camp.brand}</p>
           <p className="mt-2 font-serif text-4xl text-sand">{site.camp.name}</p>

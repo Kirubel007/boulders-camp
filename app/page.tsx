@@ -6,6 +6,7 @@ import DayTimeline from "@/components/DayTimeline";
 import StarsSection from "@/components/StarsSection";
 import Regeneration from "@/components/Regeneration";
 import Voices from "@/components/Voices";
+import Planner from "@/components/Planner";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <StarsSection />
       <Regeneration />
       <Voices />
+      <Planner />
     </>
   );
 }
