@@ -1,0 +1,42 @@
+[
+  {
+    "id": "suite-1",
+    "name": "Suite 1",
+    "tagline": "The only suite with its own plunge pool",
+    "description": "The most private way to stay at Boulders, with a plunge pool of your own.",
+    "pool": "Private plunge pool",
+    "image": { "src": "/images/fairy-circles.webp", "alt": "Plunge pool beside the tents, beneath the granite boulders" }
+  },
+  {
+    "id": "suite-2",
+    "name": "Suite 2",
+    "tagline": "A deck made for long views",
+    "description": "A spacious deck facing the endless plains, for coffee at sunrise and stars at night.",
+    "pool": "Plunge pool shared with Suite 3",
+    "image": { "src": "/images/suite-deck.webp", "alt": "Suite deck with chairs looking out over the plains" }
+  },
+  {
+    "id": "suite-3",
+    "name": "Suite 3",
+    "tagline": "Open on three sides",
+    "description": "Roll up the canvas and let the afternoon breeze move through the room.",
+    "pool": "Plunge pool shared with Suite 2",
+    "image": { "src": "/images/suite-interior.webp", "alt": "Bed with patterned cushions, the tent walls open to the desert" }
+  },
+  {
+    "id": "suite-4",
+    "name": "Suite 4",
+    "tagline": "A sala for siestas",
+    "description": "A shaded sala for the hottest hours, plus a separate, spacious bathroom.",
+    "pool": "Plunge pool shared with Suite 5",
+    "image": { "src": "/images/hero-boulders.webp", "alt": "Tented suites at the base of the granite outcrop" }
+  },
+  {
+    "id": "suite-5",
+    "name": "Suite 5",
+    "tagline": "Turned towards the view",
+    "description": "Every space faces the landscape, so the mountains turn red right in front of you.",
+    "pool": "Plunge pool shared with Suite 4",
+    "image": { "src": "/images/sunset.webp", "alt": "Suites at dusk with the mountain glowing red behind them" }
+  }
+]

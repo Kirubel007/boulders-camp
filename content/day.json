@@ -1,0 +1,32 @@
+[
+  {
+    "time": "06:00",
+    "title": "First light",
+    "text": "Coffee by the vehicle as the sun clears the mountains, then a slow morning scenic drive.",
+    "image": { "src": "/images/morning-coffee.webp", "alt": "Two guests with coffee beside a Land Rover at sunrise" }
+  },
+  {
+    "time": "09:30",
+    "title": "Into the plains",
+    "text": "Ride a fat e-bike across the gravel plains, or walk with a guide over ancient Bushman hunting grounds.",
+    "image": { "src": "/images/walking.webp", "alt": "A guide walking through tall grass on red sand" }
+  },
+  {
+    "time": "13:00",
+    "title": "The quiet hours",
+    "text": "Lunch on the breakfast deck, a book from the library, a swim, then a siesta in your sala.",
+    "image": { "src": "/images/guests-enjoying.webp", "alt": "A guest resting on a shaded deck at golden hour" }
+  },
+  {
+    "time": "17:30",
+    "title": "Sundowners",
+    "text": "Climb to the rocky plateau above camp and watch the light drain from the desert.",
+    "image": { "src": "/images/sundowners.webp", "alt": "Guests silhouetted against the sunset" }
+  },
+  {
+    "time": "21:00",
+    "title": "Antares",
+    "text": "Dinner by the open fire, then the naked-eye star safari under one of the darkest skies on earth.",
+    "image": null
+  }
+]

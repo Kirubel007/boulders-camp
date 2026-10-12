@@ -1,0 +1,26 @@
+{
+  "currency": "NAD",
+  "ratePerPersonPerNight": 20950,
+  "rateNote": "Estimate only. Excludes the per-person, per-night Sustainability Levy. Final rates are confirmed by our reservations team.",
+  "minNights": 2,
+  "maxGuests": 10,
+  "guestsPerSuite": 2,
+  "minChildAge": 7,
+  "includedActivities": [
+    "Morning and evening scenic drives",
+    "Desert sundowners",
+    "“Antares” naked-eye star safari",
+    "Full-day scenic safari",
+    "Fat e-bikes",
+    "Bushman walks (2–3 hours)"
+  ],
+  "onRequestActivities": [
+    { "id": "village", "label": "Heart & Home Village tour", "note": "Arranged well in advance" },
+    { "id": "horse", "label": "Horse riding", "note": "Arranged well in advance" }
+  ],
+  "success": {
+    "title": "Thank you. Your enquiry is ready.",
+    "body": "This prototype does not send or store anything. On the live site, our reservations team would reply personally within one working day.",
+    "whatsappCta": "Continue on WhatsApp"
+  }
+}

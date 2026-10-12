@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Design tokens: the one place to re-skin the site for another Wolwedans camp.
+  Swap these colours and the two fonts in app/layout.tsx, then swap /content.
+*/
+@theme {
+  --color-sand: #f4eee6;
+  --color-sand-deep: #e8ded1;
+  --color-granite: #2e2925;
+  --color-stone: #6b625a;
+  --color-ochre: #a65a26;
+  --color-ochre-dark: #8a4a1e;
+  --color-dusk: #c9a27e;
+  --color-night: #0d1322;
+  --color-night-soft: #1a2236;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-sand);
+  color: var(--color-granite);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-dusk);
+  color: var(--color-night);
+}
+
+/* Small, uppercase, letter-spaced label above headlines (One&Only style) */
+@utility eyebrow {
+  @apply font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em];
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300;
+}
+@utility btn-primary {
+  @apply btn bg-ochre text-white hover:bg-ochre-dark;
+}
+@utility btn-ghost {
+  @apply btn border border-current hover:bg-white/10;
+}
+
+/* Slow fade-up as sections enter the viewport (see components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.2s var(--ease-calm),
+    transform 1.2s var(--ease-calm);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
