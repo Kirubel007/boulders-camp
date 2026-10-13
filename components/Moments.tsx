@@ -1,130 +1,80 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { home } from "@/lib/content";
 import Icon from "./Icon";
+import Lightbox from "./Lightbox";
 import Reveal from "./Reveal";
 import { Container, Section } from "./ui/Section";
 import { SectionHeading } from "./ui/Typography";
 
-const ratios = { "4/5": "aspect-[4/5]", "3/2": "aspect-[3/2]" } as const;
+// "Fall for the quiet": a slowly drifting strip of photographs, each gently breathing (Ken Burns).
+// Pauses on hover/focus or with the button; reduced-motion users get a still, swipeable row.
+// Clicking a photo opens the lightbox at that photo.
+const delays = ["[animation-delay:0s]", "[animation-delay:-5s]", "[animation-delay:-9s]", "[animation-delay:-14s]"];
 
-// A masonry of small, memorable moments. Tap one to open a full-screen black lightbox.
 export default function Moments() {
   const { moments } = home;
   const items = moments.items;
+  const [paused, setPaused] = useState(false);
   const [open, setOpen] = useState<number | null>(null);
-  const lastTrigger = useRef<HTMLButtonElement | null>(null);
-  const closeBtn = useRef<HTMLButtonElement>(null);
-  const dialog = useRef<HTMLDivElement>(null);
-  const touchX = useRef<number | null>(null);
+  const stop = paused || open !== null;
 
-  const close = useCallback(() => {
-    setOpen(null);
-    lastTrigger.current?.focus();
-  }, []);
-  const step = useCallback((d: number) => setOpen((i) => (i === null ? i : (i + d + items.length) % items.length)), [items.length]);
-
-  useEffect(() => {
-    if (open === null) return;
-    const root = document.documentElement;
-    root.style.overflow = "hidden";
-    closeBtn.current?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
-      if (e.key === "Tab" && dialog.current) {
-        // Keep focus cycling through the lightbox controls.
-        const items = [...dialog.current.querySelectorAll<HTMLElement>("button")];
-        const i = items.indexOf(document.activeElement as HTMLElement);
-        e.preventDefault();
-        items[(i + (e.shiftKey ? -1 : 1) + items.length) % items.length]?.focus();
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      root.style.overflow = "";
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open, close, step]);
-
-  const current = open === null ? null : items[open];
+  const card = (m: (typeof items)[number], i: number, copy: boolean) => (
+    <li key={`${copy ? "b" : "a"}-${m.src}`} className={`shrink-0 ${copy ? "motion-reduce:hidden" : "motion-reduce:snap-start"}`} aria-hidden={copy || undefined}>
+      <button
+        type="button"
+        tabIndex={copy ? -1 : undefined}
+        onClick={() => setOpen(i)}
+        aria-label={`Open photo: ${m.caption}`}
+        className="group block text-left"
+      >
+        <span className={`relative block h-[52svh] max-h-[560px] min-h-[300px] overflow-hidden bg-sand-2 ${m.ratio === "4/5" ? "aspect-[4/5]" : "aspect-[3/2]"}`}>
+          <Image
+            src={m.src}
+            alt={copy ? "" : m.alt}
+            fill
+            sizes="(min-width: 768px) 40vw, 80vw"
+            loading="lazy"
+            className={`object-cover transition-[filter] duration-700 group-hover:brightness-110 motion-safe:animate-[breathe_18s_ease-in-out_infinite_alternate] ${delays[i % delays.length]}`}
+          />
+        </span>
+        <span className="text-label text-soft mt-3 block">{m.caption}</span>
+      </button>
+    </li>
+  );
 
   return (
-    <Section id="moments" ground="sand" labelledBy="moments-title">
-      <Container>
+    <Section id="moments" ground="sand" labelledBy="moments-title" className="overflow-hidden">
+      <Container className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeading id="moments-title" eyebrow={moments.eyebrow} title={moments.title} intro={moments.intro} />
-        <ul className="mt-12 columns-2 gap-3 md:mt-16 md:columns-3 md:gap-4 lg:columns-4">
-          {items.map((m, i) => (
-            <li key={m.src} className="mb-3 break-inside-avoid md:mb-4">
-              <Reveal>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    lastTrigger.current = e.currentTarget;
-                    setOpen(i);
-                  }}
-                  className="group block w-full text-left"
-                  aria-label={`Open photo: ${m.caption}`}
-                >
-                  <span className={`relative block overflow-hidden bg-sand-2 ${ratios[m.ratio as keyof typeof ratios]}`}>
-                    <Image
-                      src={m.src}
-                      alt={m.alt}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                      loading="lazy"
-                      className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]"
-                    />
-                  </span>
-                  <span className="text-label text-soft mt-2 block">{m.caption}</span>
-                </button>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+        <button
+          type="button"
+          onClick={() => setPaused((p) => !p)}
+          aria-pressed={paused}
+          aria-label={paused ? moments.playLabel : moments.pauseLabel}
+          className="flex size-11 shrink-0 items-center justify-center self-start border border-current transition-colors hover:bg-ink hover:text-sand motion-reduce:hidden md:self-end"
+        >
+          <Icon name={paused ? "play" : "pause"} className="size-4" strokeWidth={1.75} />
+        </button>
       </Container>
 
-      {current && open !== null && (
-        <div
-          ref={dialog}
-          role="dialog"
-          aria-modal="true"
-          aria-label={current.caption}
-          className="ground-night fixed inset-0 z-[70] flex animate-[fade-in_300ms_ease-out] flex-col"
-          onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
-          onTouchEnd={(e) => {
-            if (touchX.current === null) return;
-            const dx = e.changedTouches[0].clientX - touchX.current;
-            if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
-            touchX.current = null;
-          }}
-        >
-          <div className="flex items-center justify-between px-4 py-3 md:px-8">
-            <p className="text-label" aria-live="polite">
-              <span className="text-gold">{String(open + 1).padStart(2, "0")}</span> / {String(items.length).padStart(2, "0")}
-            </p>
-            <button ref={closeBtn} type="button" onClick={close} className="flex min-h-11 items-center gap-3 px-2">
-              <span className="text-label">Close</span>
-              <Icon name="close" className="size-5" strokeWidth={1.5} />
-            </button>
-          </div>
-          <div className="relative flex-1">
-            <Image key={current.src} src={current.src} alt={current.alt} fill sizes="100vw" className="animate-[fade-in_400ms_ease-out] object-contain" />
-          </div>
-          <div className="flex items-center justify-between gap-4 px-4 py-4 md:px-8">
-            <button type="button" onClick={() => step(-1)} aria-label="Previous photo" className="flex size-11 items-center justify-center border border-sand/50 hover:bg-sand hover:text-black">
-              <Icon name="arrowLeft" className="size-4" strokeWidth={1.5} />
-            </button>
-            <p className="text-h3 text-center">{current.caption}</p>
-            <button type="button" onClick={() => step(1)} aria-label="Next photo" className="flex size-11 items-center justify-center border border-sand/50 hover:bg-sand hover:text-black">
-              <Icon name="arrowRight" className="size-4" strokeWidth={1.5} />
-            </button>
-          </div>
+      <Reveal className="mt-12 md:mt-16">
+        <div className="motion-reduce:snap-x motion-reduce:overflow-x-auto motion-reduce:px-6">
+          <ul
+            className={`flex w-max gap-4 pr-4 md:pr-6 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-safe:animate-[drift_110s_linear_infinite] md:gap-6 ${
+              stop ? "[animation-play-state:paused]" : ""
+            }`}
+          >
+            {items.map((m, i) => card(m, i, false))}
+            {/* Second copy makes the loop seamless; hidden from assistive tech and from reduced-motion users */}
+            {items.map((m, i) => card(m, i, true))}
+          </ul>
         </div>
-      )}
+      </Reveal>
+
+      {open !== null && <Lightbox items={items} index={open} onIndex={setOpen} onClose={() => setOpen(null)} />}
     </Section>
   );
 }

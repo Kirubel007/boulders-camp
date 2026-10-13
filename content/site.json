@@ -11,16 +11,16 @@
   "nav": {
     "links": [
       {
-        "label": "Arrive",
-        "href": "/#arrive"
-      },
-      {
         "label": "Suites",
-        "href": "/#suites"
+        "href": "/suites"
       },
       {
         "label": "A day here",
         "href": "/#day"
+      },
+      {
+        "label": "Moments",
+        "href": "/#moments"
       },
       {
         "label": "Stars",
@@ -36,12 +36,12 @@
       },
       {
         "label": "Find us",
-        "href": "/#find-us"
+        "href": "#map"
       }
     ],
     "cta": {
       "label": "Plan your stay",
-      "href": "/#plan"
+      "href": "/plan"
     }
   },
   "contact": {
@@ -69,5 +69,17 @@
     ],
     "credits": "All photography, logos and rate documents © Wolwedans, used for this prototype only.",
     "disclaimer": "Design prototype for the Creo Media assessment. No guest data is collected or stored, and no booking system is connected."
+  },
+  "map": {
+    "lat": -25.3304383,
+    "lng": 15.976672,
+    "zoom": 10,
+    "title": "Map showing Wolwedans Boulders Camp in the NamibRand Nature Reserve",
+    "heading": "Find us",
+    "place": "Boulders Camp · NamibRand Nature Reserve, Namibia",
+    "note": "Reached by light aircraft to Aandster airstrip and a 30-minute 4x4 transfer, or by road transfer.",
+    "buttonLabel": "Show Boulders Camp on a map",
+    "directionsLabel": "Get directions",
+    "openLabel": "Open in Google Maps"
   }
 }

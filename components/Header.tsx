@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { site, whatsappHref } from "@/lib/content";
 import Icon from "./Icon";
+import { openMap } from "./MapWidget";
 import Logo from "./ui/Logo";
 import { ButtonLink } from "./ui/Button";
 import { Container } from "./ui/Section";
@@ -111,9 +112,22 @@ export default function Header() {
               <ul className="space-y-2 md:space-y-3">
                 {site.nav.links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} onClick={close} className="text-h2 inline-flex min-h-11 items-center hover:text-umber">
-                      {l.label}
-                    </Link>
+                    {l.href === "#map" ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setOpen(false);
+                          openMap();
+                        }}
+                        className="text-h2 inline-flex min-h-11 items-center hover:text-umber"
+                      >
+                        {l.label}
+                      </button>
+                    ) : (
+                      <Link href={l.href} onClick={close} className="text-h2 inline-flex min-h-11 items-center hover:text-umber">
+                        {l.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

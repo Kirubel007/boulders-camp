@@ -15,12 +15,180 @@
     "Bushman walks (2–3 hours)"
   ],
   "onRequestActivities": [
-    { "id": "village", "label": "Heart & Home Village tour", "note": "Arranged well in advance" },
-    { "id": "horse", "label": "Horse riding", "note": "Arranged well in advance" }
+    {
+      "id": "village",
+      "label": "Heart & Home Village tour",
+      "note": "Arranged well in advance"
+    },
+    {
+      "id": "horse",
+      "label": "Horse riding",
+      "note": "Arranged well in advance"
+    }
   ],
   "success": {
     "title": "Thank you. Your enquiry is ready.",
     "body": "This prototype does not send or store anything. On the live site, our reservations team would reply personally within one working day.",
     "whatsappCta": "Continue on WhatsApp"
+  },
+  "flow": {
+    "eyebrow": "Plan your stay",
+    "closeLabel": "Close and return to the site",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Send enquiry",
+    "steps": [
+      {
+        "id": "dates",
+        "label": "Dates",
+        "title": "When would you like to come?",
+        "hint": "Two nights minimum. The longer you stay, the quieter it gets."
+      },
+      {
+        "id": "stay",
+        "label": "Suites & guests",
+        "title": "Who is coming, and where will you sleep?",
+        "hint": "Two guests per suite, ten at most. Children from 7."
+      },
+      {
+        "id": "interests",
+        "label": "Interests",
+        "title": "What would you love to do?",
+        "hint": "Choose as many as you like. Most are included."
+      },
+      {
+        "id": "travel",
+        "label": "Travel",
+        "title": "How will you get here?",
+        "hint": "We will help you plan the journey."
+      },
+      {
+        "id": "contact",
+        "label": "Details",
+        "title": "Your details",
+        "hint": "Check your plans, then send them to us."
+      }
+    ],
+    "flexibility": [
+      {
+        "id": "exact",
+        "label": "Exact dates",
+        "note": "I know when I am coming"
+      },
+      {
+        "id": "around",
+        "label": "A few days either way",
+        "note": "Roughly these dates"
+      },
+      {
+        "id": "flexible",
+        "label": "I am flexible",
+        "note": "Just pick a month"
+      }
+    ],
+    "interests": [
+      {
+        "id": "stargazing",
+        "label": "Stargazing",
+        "note": "Antares naked-eye star safari",
+        "icon": "star"
+      },
+      {
+        "id": "drives",
+        "label": "Scenic drives",
+        "note": "Morning and evening",
+        "icon": "compass"
+      },
+      {
+        "id": "walks",
+        "label": "Bushman walks",
+        "note": "2–3 hours on foot",
+        "icon": "walk"
+      },
+      {
+        "id": "ebike",
+        "label": "Fat e-biking",
+        "note": "Across the gravel plains",
+        "icon": "bike"
+      },
+      {
+        "id": "sundowners",
+        "label": "Sundowners",
+        "note": "On the rock plateau",
+        "icon": "glass"
+      },
+      {
+        "id": "safari",
+        "label": "Full-day scenic safari",
+        "note": "Into the deep south",
+        "icon": "sun"
+      },
+      {
+        "id": "village",
+        "label": "Heart & Home Village tour",
+        "note": "On request, arranged in advance",
+        "icon": "home"
+      },
+      {
+        "id": "horse",
+        "label": "Horse riding",
+        "note": "On request, arranged in advance",
+        "icon": "leaf"
+      }
+    ],
+    "arrivingFrom": [
+      {
+        "id": "windhoek",
+        "label": "Windhoek"
+      },
+      {
+        "id": "swakopmund",
+        "label": "Swakopmund"
+      },
+      {
+        "id": "sossusvlei",
+        "label": "Sossusvlei / Sesriem"
+      },
+      {
+        "id": "elsewhere",
+        "label": "Somewhere else"
+      }
+    ],
+    "transfers": [
+      {
+        "id": "charter",
+        "label": "Charter flight",
+        "note": "To Aandster airstrip, 30 min to camp",
+        "icon": "plane"
+      },
+      {
+        "id": "selfdrive",
+        "label": "Self-drive",
+        "note": "6–7 hrs on good gravel roads",
+        "icon": "car"
+      },
+      {
+        "id": "road",
+        "label": "Road transfer",
+        "note": "With a qualified transfer company",
+        "icon": "users"
+      },
+      {
+        "id": "unsure",
+        "label": "Not sure yet",
+        "note": "We will advise",
+        "icon": "compass"
+      }
+    ],
+    "confirmation": {
+      "title": "Thank you",
+      "line": "Your plans are ready. Our reservations team replies personally within one working day.",
+      "note": "This prototype does not send or store anything. Use WhatsApp or email to send your plans for real.",
+      "image": {
+        "src": "/images/star-bed.webp",
+        "alt": "A bed on an open deck glowing beneath a deep blue night sky"
+      },
+      "home": "Back to Boulders Camp"
+    }
   }
 }

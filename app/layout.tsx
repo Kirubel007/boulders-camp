@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/content";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import MobileBar from "@/components/MobileBar";
 
 // Brand fonts: an elegant light serif for headlines, a clean geometric sans for text.
 const cormorant = Cormorant_Garamond({
@@ -40,10 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="text-label sr-only min-h-11 bg-sand p-4 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70]">
           Skip to content
         </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <MobileBar />
+        {children}
       </body>
     </html>
   );

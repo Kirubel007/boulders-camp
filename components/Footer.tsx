@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site, whatsappHref } from "@/lib/content";
 import GuideSignup from "./GuideSignup";
+import { MapLink } from "./MapWidget";
 import Logo from "./ui/Logo";
 import { Container } from "./ui/Section";
 import { Eyebrow } from "./ui/Typography";
@@ -22,11 +23,20 @@ export default function Footer() {
           <nav aria-label="Footer" className="md:col-span-3">
             <Eyebrow>Explore</Eyebrow>
             <ul className="mt-3">
+              <li>
+                <Link href={site.nav.cta.href} className={link}>
+                  {site.nav.cta.label}
+                </Link>
+              </li>
               {site.nav.links.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className={link}>
-                    {l.label}
-                  </Link>
+                  {l.href === "#map" ? (
+                    <MapLink label={l.label} className={link} />
+                  ) : (
+                    <Link href={l.href} className={link}>
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

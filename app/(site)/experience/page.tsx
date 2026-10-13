@@ -25,7 +25,7 @@ export default function ExperiencePage() {
 
   return (
     <>
-      <Hero eyebrow={hero.eyebrow} title={hero.title} line={hero.subtitle} slides={slides} cta={hero.cta} />
+      <Hero title={hero.title} line={hero.subtitle} slides={slides} cta={hero.cta} />
       <Intro text={experience.intro} />
 
       {/* One moment per section, alternating grounds and image sides */}
@@ -39,7 +39,7 @@ export default function ExperiencePage() {
         </Section>
       ))}
 
-      <NightSky id="antares" eyebrow={night.time} title={night.title} body={night.text} image={night.image} cta={{ ...home.stars.cta, href: "/#plan" }} />
+      <NightSky id="antares" eyebrow={night.time} title={night.title} body={night.text} image={night.image} cta={home.stars.cta} />
 
       <Section ground="sand" labelledBy="included-title">
         <Container className="grid gap-12 md:grid-cols-12 md:gap-16">

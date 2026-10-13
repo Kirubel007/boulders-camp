@@ -200,6 +200,24 @@ body {
     transform: scale(1);
   }
 }
+/* Gallery strip: drifts left forever (the track holds two copies, so -50% loops seamlessly) */
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Gentle breathing zoom on each gallery photo */
+@keyframes breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
 @keyframes progress {
   from {
     width: 0;

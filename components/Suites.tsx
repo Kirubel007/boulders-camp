@@ -1,36 +1,39 @@
+import Image from "next/image";
+import Link from "next/link";
 import { home, suites } from "@/lib/content";
 import Reveal from "./Reveal";
-import SuiteEnquire from "./SuiteEnquire";
-import FactRow from "./ui/FactRow";
-import ImageFrame from "./ui/ImageFrame";
+import ArrowButton from "./ui/ArrowButton";
 import { Container, Section } from "./ui/Section";
 import { SectionHeading } from "./ui/Typography";
 
-// Listing rows: a 3/2 image beside an ochre text card. Stacks image-first on mobile.
+// Homepage teaser: five portrait cards, each opening that suite's story on /suites.
 export default function Suites() {
-  const { suites: intro } = home;
+  const { suites: s } = home;
   return (
     <Section id="suites" ground="sand" labelledBy="suites-title">
-      <Container>
-        <SectionHeading id="suites-title" eyebrow={intro.eyebrow} title={intro.title} intro={intro.body} />
-        <ul className="mt-12 space-y-10 md:mt-16 md:space-y-12">
-          {suites.map((s) => (
-            <li key={s.id}>
+      <Container className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeading id="suites-title" eyebrow={s.eyebrow} title={s.title} intro={s.line} />
+        <ArrowButton href={s.cta.href} label={s.cta.label} className="shrink-0" />
+      </Container>
+      <Container className="mt-12 md:mt-16">
+        <ul className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-5 md:gap-5 md:overflow-visible md:px-0">
+          {suites.map((x) => (
+            <li key={x.id} className="w-[72%] shrink-0 snap-start sm:w-[44%] md:w-auto">
               <Reveal>
-                <article className="grid md:grid-cols-12" aria-labelledby={`${s.id}-title`}>
-                  <ImageFrame src={s.image.src} alt={s.image.alt} ratio="3/2" sizes="(min-width: 768px) 58vw, 100vw" className="md:col-span-7" />
-                  <div className="ground-ochre flex flex-col justify-center p-6 sm:p-8 md:col-span-5 lg:p-12">
-                    <p className="text-label text-eyebrow">{s.name}</p>
-                    <h3 id={`${s.id}-title`} className="text-h3 mt-3">
-                      {s.tagline}
-                    </h3>
-                    <FactRow facts={s.facts} className="mt-6" />
-                    <p className="text-body text-soft mt-6">{s.description}</p>
-                    <div className="mt-8">
-                      <SuiteEnquire id={s.id} label={`${intro.cta} ${s.name}`} />
-                    </div>
-                  </div>
-                </article>
+                <Link href={`/suites#${x.id}`} className="group block">
+                  <span className="relative block aspect-[4/5] overflow-hidden bg-sand-2">
+                    <Image
+                      src={x.image.src}
+                      alt={x.image.alt}
+                      fill
+                      sizes="(min-width: 768px) 20vw, 72vw"
+                      loading="lazy"
+                      className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-calm)] group-hover:scale-[1.06]"
+                    />
+                  </span>
+                  <span className="text-label text-eyebrow mt-4 block">{x.name}</span>
+                  <span className="text-h3 mt-1 block font-normal group-hover:underline group-hover:underline-offset-4">{x.tagline}</span>
+                </Link>
               </Reveal>
             </li>
           ))}

@@ -7,8 +7,6 @@ import Day from "@/components/Day";
 import NightSky from "@/components/NightSky";
 import Regeneration from "@/components/Regeneration";
 import Voices from "@/components/Voices";
-import Planner from "@/components/Planner";
-import FindUs from "@/components/FindUs";
 import Moments from "@/components/Moments";
 import Invite from "@/components/Invite";
 
@@ -26,8 +24,6 @@ export default function Home() {
       <NightSky id="stars" {...home.stars} />
       <Regeneration />
       <Voices />
-      <Planner />
-      <FindUs />
     </>
   );
 }

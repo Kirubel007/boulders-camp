@@ -1,0 +1,33 @@
+{
+  "seo": {
+    "title": "The suites · Boulders Camp, Wolwedans",
+    "description": "Five tented suites at the foot of a granite outcrop in the NamibRand. Each with a deck, a sala and a plunge pool."
+  },
+  "hero": {
+    "title": "Five suites, open to the desert",
+    "line": "Canvas, granite and a view that never ends."
+  },
+  "features": [
+    {
+      "icon": "bed",
+      "label": "Sleeps 2"
+    },
+    {
+      "icon": "wind",
+      "label": "Open on three sides"
+    },
+    {
+      "icon": "deck",
+      "label": "Spacious deck"
+    },
+    {
+      "icon": "sala",
+      "label": "Sala for siestas"
+    },
+    {
+      "icon": "bath",
+      "label": "Separate bathroom"
+    }
+  ],
+  "ctaLabel": "Plan your stay in"
+}
