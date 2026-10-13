@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Source image dumps (only the images in use are copied into /public/images)
+/public/images/boulders-camp-images/
+/public/images/boulders-extra-and-night-sky-webp/

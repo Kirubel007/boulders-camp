@@ -1,92 +1,177 @@
 @import "tailwindcss";
 
 /*
-  Design tokens: the one place to re-skin the site for another Wolwedans camp.
-  Swap these colours and the two fonts in app/layout.tsx, then swap /content.
+  Design system: the single source of truth.
+  Re-skin for another Wolwedans camp by changing these tokens and /content only.
+  Palette: ~60% light dune neutrals, 30% ochre surfaces, 10% espresso + champagne gold.
 */
 @theme {
-  --color-sand: #f4eee6;
-  --color-sand-deep: #e8ded1;
-  --color-granite: #2e2925;
-  --color-stone: #6b625a;
-  --color-ochre: #a65a26;
-  --color-ochre-dark: #8a4a1e;
-  --color-dusk: #c9a27e;
-  --color-night: #0d1322;
-  --color-night-soft: #1a2236;
+  --color-sand: #faf7f2; /* main canvas */
+  --color-sand-2: #f2e6d0; /* alternate sections */
+  --color-ochre: #d9b98f; /* suite cards, "A day here" */
+  --color-terracotta: #c97c5d; /* decorative only, never behind text */
+  --color-ink: #2e2a27; /* all text, footer ground */
+  --color-umber: #542e18; /* eyebrow labels on light/ochre grounds */
+  --color-muted: #655d57; /* secondary text on sand / sand-2 */
+  --color-muted-ochre: #5a4636; /* secondary text on ochre */
+  --color-gold: #c5a059; /* "Plan your stay" buttons, footer eyebrows, map pin. Ink text only. */
+  --color-navy: #2c3e50; /* stars section */
+  --color-teal: #3a5a58; /* optional small accents */
+  --color-ash: #b5aba2; /* secondary text on ink */
 
   --font-serif: var(--font-cormorant), Georgia, serif;
   --font-sans: var(--font-jost), system-ui, sans-serif;
 
   --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 64px;
 }
 
-@keyframes kenburns {
-  from {
-    transform: scale(1.12);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 1;
+@media (min-width: 768px) {
+  :root {
+    --header-h: 80px;
   }
 }
 
-@keyframes fadeup {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* ---------- Grounds: each sets the text, eyebrow, secondary and hairline colours for its children ---------- */
+:root,
+.ground-sand {
+  --ground: var(--color-sand);
+  --fg: var(--color-ink);
+  --eyebrow: var(--color-umber);
+  --soft: var(--color-muted);
+  --line: rgb(46 42 39 / 0.15);
+}
+.ground-sand-2 {
+  --ground: var(--color-sand-2);
+  --fg: var(--color-ink);
+  --eyebrow: var(--color-umber);
+  --soft: var(--color-muted);
+  --line: rgb(46 42 39 / 0.15);
+}
+.ground-ochre {
+  --ground: var(--color-ochre);
+  --fg: var(--color-ink);
+  --eyebrow: var(--color-umber);
+  --soft: var(--color-muted-ochre);
+  --line: rgb(46 42 39 / 0.15);
+}
+.ground-navy {
+  --ground: var(--color-navy);
+  --fg: var(--color-sand-2);
+  --eyebrow: var(--color-sand-2);
+  --soft: var(--color-sand-2);
+  --line: rgb(242 230 208 / 0.18);
+}
+.ground-ink {
+  --ground: var(--color-ink);
+  --fg: var(--color-sand);
+  --eyebrow: var(--color-gold);
+  --soft: var(--color-ash);
+  --line: rgb(242 230 208 / 0.18);
+}
+.ground-sand,
+.ground-sand-2,
+.ground-ochre,
+.ground-navy,
+.ground-ink {
+  background-color: var(--ground);
+  color: var(--fg);
 }
 
+@utility text-eyebrow {
+  color: var(--eyebrow);
+}
+@utility text-soft {
+  color: var(--soft);
+}
+@utility border-line {
+  border-color: var(--line);
+}
+
+/* ---------- Type scale (fixed: nothing else is used) ---------- */
+@utility text-h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+@utility text-h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.15;
+}
+@utility text-h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.25;
+}
+@utility text-lead {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.6;
+}
+@utility text-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+}
+@utility text-fine {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+}
+@utility text-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+@utility measure {
+  max-width: 60ch;
+}
+
+/* ---------- Spacing ---------- */
+@utility py-section {
+  padding-block: clamp(72px, 10vw, 120px);
+}
+
+/* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
 }
-
 body {
   background: var(--color-sand);
-  color: var(--color-granite);
+  color: var(--color-ink);
   font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
 }
-
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
 ::selection {
-  background: var(--color-dusk);
-  color: var(--color-night);
+  background: var(--color-ochre);
+  color: var(--color-ink);
 }
 
-/* Small, uppercase, letter-spaced label above headlines (One&Only style) */
-@utility eyebrow {
-  @apply font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em];
-}
-@utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300;
-}
-@utility btn-primary {
-  @apply btn bg-ochre text-white hover:bg-ochre-dark;
-}
-@utility btn-ghost {
-  @apply btn border border-current hover:bg-white/10;
-}
-
-/* Slow fade-up as sections enter the viewport (see components/Reveal.tsx) */
+/* ---------- Motion: subtle only ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(16px);
   transition:
-    opacity 1.2s var(--ease-calm),
-    transform 1.2s var(--ease-calm);
+    opacity 700ms var(--ease-calm),
+    transform 700ms var(--ease-calm);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -106,6 +191,51 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- TEMPORARY: legacy aliases so un-migrated sections keep working mid-redesign. Delete when done. ---------- */
+@theme {
+  --color-granite: #2e2a27;
+  --color-stone: #655d57;
+  --color-ochre-dark: #8a4a1e;
+  --color-dusk: #c5a059;
+  --color-night: #2e2a27;
+  --color-sand-deep: #f2e6d0;
+}
+@utility eyebrow {
+  @apply text-label;
+}
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 text-label transition-colors;
+}
+@utility btn-primary {
+  @apply btn bg-gold text-ink;
+}
+@utility btn-ghost {
+  @apply btn border border-current;
+}
+@keyframes kenburns {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes twinkle {
+  50% {
+    opacity: 1;
   }
 }
