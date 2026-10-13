@@ -25,11 +25,11 @@ export default function SuitesPage() {
         const facts = [{ icon: "pool", label: s.poolShort }, ...suitesPage.features];
         return (
           <Section key={s.id} id={s.id} ground={i % 2 ? "sand-2" : "sand"} labelledBy={`${s.id}-title`}>
-            <Container className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
-              <Reveal className={`md:col-span-7 ${i % 2 ? "md:order-2" : ""}`}>
+            <Container className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+              <Reveal className={`lg:col-span-7 ${i % 2 ? "lg:order-2" : ""}`}>
                 <SuiteGallery name={s.name} items={s.gallery} />
               </Reveal>
-              <Reveal className="md:col-span-5">
+              <Reveal className="lg:col-span-5">
                 <Eyebrow>{s.name}</Eyebrow>
                 <h2 id={`${s.id}-title`} className="text-h2 mt-4 max-w-[14ch] text-balance">
                   {s.tagline}

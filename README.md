@@ -17,24 +17,24 @@ The website is the experience: quiet, confident and premium, so that Boulders fe
 - **Restraint:** one serif (Cormorant Garamond) and one sans (Jost), a fixed type scale, hairline dividers, square corners, no shadows and no collages.
 - **Selling comes before complexity:** "Plan your stay" is always one tap away, in the header, the hero and a sticky bar on mobile.
 
-![Homepage at 1280px](docs/screenshots/home-1280-hero.jpg)
+![Homepage at 1280px](docs/screenshots/desktop-hero.jpg)
 
 ## Features
 
+Less talk, more showing: every section is a large image and one or two lines, with slow scroll reveals.
+
 | Feature | What it does |
 |---|---|
-| **Hero** | A full-screen slideshow of five photos that crossfade with a slow cinematic zoom behind a black gradient, under a transparent header. The headline glows so it pops. Captions, a progress line and a pause button (it starts paused for reduced-motion users). Only the first photo loads up front. |
-| **Photo bands** | The intro statement, a "Five suites. Ten guests. One sky." invitation and the guest voices sit over full-bleed photos that stay fixed while the page scrolls past, under black overlays. Each photo loads only as it nears the screen. |
-| **Moments** | A masonry gallery of eight small moments (lunch under the rocks, the fly-in, a bed beneath the stars…). Tapping one opens a full-screen black lightbox with arrows, swipe, Escape and keyboard support. |
-| **Header and menu** | The real Wolwedans logo, MENU and a gold "Plan your stay". The full-screen menu locks scrolling, keeps keyboard focus inside, closes on Escape or on any link tap, and returns focus to MENU. |
-| **Suites** | Listing rows with a 3/2 image beside an ochre card: label, title, facts (Sleeps · Plunge pool), one line and an arrow button that **pre-selects the suite in the planner** and scrolls there. |
-| **A day here** | A vertical timeline beside one sticky image on desktop, and swipeable cards on mobile. |
-| **Night sky** | A real Milky Way photo with glowing sand text over a black gradient. |
-| **Plan your stay** (interactive) | Dates (minimum 2 nights), adults and children (maximum 10, children 7+), suites (2 guests each, validated), included and on-request activities, and a **live estimate** (NAD 20,950 per person per night, levy excluded). Sends on WhatsApp, or opens a pre-filled email after a success summary. |
-| **Find us** (interactive map) | A click-to-load Google map pinned on Boulders Safari Camp (-25.3304, 15.9767). Nothing loads from Google, and no cookies are set, until the visitor asks. Includes "Open in Google Maps" and "Directions". |
-| **Lead generation** | A sticky mobile bar (WhatsApp + Plan your stay), the scarcity cue "Only 5 suites · max 10 guests", partner logos, placeholder guest quotes, a journey-guide signup and the rate-sheet PDFs. |
-| **Experience page** | `/experience`: *A Day & Night at Boulders*, built from the same components. |
-| **Quality** | Lighthouse mobile on the live site scores 95–96 for Performance and 100 for Accessibility, Best Practices and SEO. There is no horizontal scroll from 320px to 1920px, every tap target is at least 44px, every image has alt text, focus is always visible, and `prefers-reduced-motion` is respected. |
+| **Hero** | Five full-screen photos crossfade with a slow Ken Burns zoom behind a black gradient. Only the headline, one line and "Plan your stay", plus a quiet pause control. Only the first photo loads up front. |
+| **Photo bands** | The intro, the "Five suites. Ten guests. One sky." invitation and Guest voices sit over fixed full-bleed photos that load as they near the screen. |
+| **Suites** | A swipeable row of portrait cards on the homepage, then a `/suites` page where each suite has its own story: a three-photo gallery (opens the lightbox), one evocative line and details as small icons. |
+| **Fall for the quiet** | A slowly drifting strip of twelve photos, each gently zooming. Pauses on hover or focus, with a pause/play button; reduced-motion users get a still, swipeable row. A click opens a fullscreen lightbox over a blurred, darkened page, with arrows, swipe, keyboard ← → , Esc and X. |
+| **Plan your stay** (`/plan`) | A Singita-style flow on its own page: logo and X close, "Step 1–5" progress, one question per step, large tappable option cards and Back/Next fixed at the bottom. 1 Dates and flexibility → 2 Guests and suites (live estimate) → 3 Interests → 4 Travel (arriving from, transfer) → 5 Details and review → calm confirmation with WhatsApp and email hand-off. Each step is validated, answers are kept when going back, and `?suite=` / `?interest=` pre-select choices. **Every** "Plan your stay" button on the site opens it. |
+| **Map widget** | A round map-pin button (bottom-right) opens a small card (a sheet on mobile) with a Google map on Boulders Safari Camp, "Get directions", "Open in Google Maps" and how to get here. Closes with X, Esc or a click outside. "Find us" in the menu and footer opens it too. |
+| **Experience page** | `/experience`: *A Day & Night at Boulders*, hour by hour, built from the same components. |
+| **Quality** | No horizontal scroll from 320px to 1920px (plus landscape) on every page; tap targets of 44px or more; alt text on every image; keyboard support and focus return for the menu, lightbox, map and flow; `prefers-reduced-motion` respected. |
+
+Screenshots of the hero, gallery, lightbox, map widget, suite story and every booking step, at 1440px and 375px, are in [`docs/screenshots`](docs/screenshots).
 
 ## Design system
 
@@ -58,8 +58,11 @@ Everything is defined once in `app/globals.css` (`@theme`) and reused through sh
 ```
 app/
   layout.tsx          Fonts, metadata, header, footer, sticky mobile bar
-  page.tsx            Homepage: just an ordered list of sections
-  experience/page.tsx Experience page
+  (site)/            Story pages sharing the header, footer, mobile bar and map widget
+    page.tsx          Homepage: an ordered list of sections
+    suites/page.tsx   A visual story per suite
+    experience/page.tsx Experience page
+  plan/page.tsx       The 5-step Plan your stay flow (its own minimal shell)
   globals.css         Design system: colours, grounds, type scale, spacing, motion
 components/           Sections. They render content and hold no copy.
 components/ui/        Shared building blocks (Section, Button, FactRow, ImageFrame, Logo…)
@@ -68,7 +71,8 @@ content/              All text, data and image paths, as JSON
   home.json           Homepage sections
   suites.json         The five suites
   day.json            The day timeline (shared by both pages)
-  planner.json        Rates and rules for the planner
+  planner.json        Rates, rules and every step and option of the /plan flow
+  suites-page.json    /suites page copy and the shared suite features
   experience.json     Experience page
 lib/content.ts        Single entry point that loads and types the content
 public/images/        WebP photos (originals in /original, partner logos in /logos)

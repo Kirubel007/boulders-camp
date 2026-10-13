@@ -313,7 +313,7 @@ export default function PlanFlow() {
                       <span className={`block h-0.5 w-full transition-colors duration-500 ${state === "todo" ? "bg-line" : "bg-ink"}`} />
                       <span className={`text-fine ${state === "current" ? "text-umber" : state === "done" ? "text-ink group-hover:underline" : "text-muted"}`}>
                         Step {i + 1}
-                        <span className="hidden md:inline"> · {s.label}</span>
+                        <span className="hidden lg:inline"> · {s.label}</span>
                       </span>
                     </button>
                   </li>

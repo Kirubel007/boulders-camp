@@ -102,7 +102,7 @@ export default function Hero({
         )}
 
         {many && (
-          <div className="mt-6 flex items-center justify-center gap-4 md:absolute md:bottom-8 md:left-12 md:mt-0">
+          <div className="mt-6 flex items-center justify-start gap-4 md:absolute md:bottom-8 md:left-12 md:mt-0">
             <div className="flex gap-2" aria-hidden="true">
               {slides.map((s, i) => (
                 <span key={s.src} className="relative h-px w-6 overflow-hidden bg-sand/30 md:w-8">

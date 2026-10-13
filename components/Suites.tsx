@@ -16,9 +16,9 @@ export default function Suites() {
         <ArrowButton href={s.cta.href} label={s.cta.label} className="shrink-0" />
       </Container>
       <Container className="mt-12 md:mt-16">
-        <ul className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-5 md:gap-5 md:overflow-visible md:px-0">
+        <ul className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 md:-mx-12 md:scroll-px-12 md:px-12 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:px-0">
           {suites.map((x) => (
-            <li key={x.id} className="w-[72%] shrink-0 snap-start sm:w-[44%] md:w-auto">
+            <li key={x.id} className="w-[72%] shrink-0 snap-start sm:w-[44%] md:w-[34%] lg:w-auto">
               <Reveal>
                 <Link href={`/suites#${x.id}`} className="group block">
                   <span className="relative block aspect-[4/5] overflow-hidden bg-sand-2">
@@ -26,7 +26,7 @@ export default function Suites() {
                       src={x.image.src}
                       alt={x.image.alt}
                       fill
-                      sizes="(min-width: 768px) 20vw, 72vw"
+                      sizes="(min-width: 1024px) 20vw, (min-width: 768px) 34vw, 72vw"
                       loading="lazy"
                       className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-calm)] group-hover:scale-[1.06]"
                     />

@@ -76,10 +76,11 @@
     "zoom": 10,
     "title": "Map showing Wolwedans Boulders Camp in the NamibRand Nature Reserve",
     "heading": "Find us",
-    "place": "Boulders Camp · NamibRand Nature Reserve, Namibia",
+    "place": "Boulders Camp",
     "note": "Reached by light aircraft to Aandster airstrip and a 30-minute 4x4 transfer, or by road transfer.",
     "buttonLabel": "Show Boulders Camp on a map",
     "directionsLabel": "Get directions",
-    "openLabel": "Open in Google Maps"
+    "openLabel": "Open in Google Maps",
+    "region": "NamibRand Nature Reserve, Namibia"
   }
 }

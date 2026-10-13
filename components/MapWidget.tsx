@@ -71,7 +71,7 @@ export default function MapWidget() {
         aria-expanded={open}
         aria-controls="map-card"
         aria-label={map.buttonLabel}
-        className="fixed bottom-[calc(var(--bar-h)+16px)] right-4 z-40 flex size-14 items-center justify-center rounded-full bg-black text-sand ring-1 ring-sand/25 shadow-[0_8px_30px_rgb(0_0_0/0.35)] transition-transform duration-500 ease-[var(--ease-calm)] hover:scale-105 md:bottom-8 md:right-8"
+        className="fixed bottom-[calc(var(--bar-h)+16px)] right-4 z-40 flex size-12 items-center md:size-14 justify-center rounded-full bg-black text-sand ring-1 ring-sand/25 shadow-[0_8px_30px_rgb(0_0_0/0.35)] transition-transform duration-500 ease-[var(--ease-calm)] hover:scale-105 md:bottom-8 md:right-8"
       >
         <Icon name={open ? "close" : "pin"} className="size-6" strokeWidth={1.5} />
       </button>
@@ -93,6 +93,7 @@ export default function MapWidget() {
                 <h2 id="map-card-title" className="text-h3 mt-1">
                   {map.place}
                 </h2>
+                <p className="text-fine text-soft">{map.region}</p>
               </div>
               <button type="button" onClick={close} aria-label="Close map" className="-mr-2 -mt-1 flex size-11 shrink-0 items-center justify-center">
                 <Icon name="close" className="size-5" strokeWidth={1.5} />
