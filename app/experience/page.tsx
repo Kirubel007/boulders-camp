@@ -21,10 +21,11 @@ export default function ExperiencePage() {
   const { hero } = experience;
   const daylight = day.slice(0, -1);
   const night = day[day.length - 1];
+  const slides = [{ ...hero.image, caption: hero.title }, ...daylight.map((m) => ({ ...m.image, caption: `${m.time} · ${m.title}` }))];
 
   return (
     <>
-      <Hero eyebrow={hero.eyebrow} title={hero.title} line={hero.subtitle} image={hero.image} cta={hero.cta} />
+      <Hero eyebrow={hero.eyebrow} title={hero.title} line={hero.subtitle} slides={slides} cta={hero.cta} />
       <Intro text={experience.intro} />
 
       {/* One moment per section, alternating grounds and image sides */}

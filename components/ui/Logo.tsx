@@ -26,7 +26,7 @@ export default function Logo({
         height={f.height}
         alt={`${site.camp.brand} ${site.camp.name}`}
         className={size === "lg" ? "h-12 w-auto md:h-14" : "h-7 w-auto md:h-9"}
-        preload={variant === "dark"}
+        preload
       />
       <span className="text-label mt-1 leading-none" aria-hidden="true">
         {site.camp.name}

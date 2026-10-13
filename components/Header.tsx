@@ -11,12 +11,21 @@ import { Container } from "./ui/Section";
 // Sand header with a hairline. MENU left, logo centre, gold "Plan your stay" right (768px and up).
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const overlay = useRef<HTMLDivElement>(null);
 
   const close = useCallback(() => {
     setOpen(false);
     menuButton.current?.focus();
+  }, []);
+
+  // Transparent over the hero photo; solid sand once the visitor scrolls.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // While open: lock body scroll, close on Escape, keep Tab inside the overlay.
@@ -48,7 +57,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="ground-sand sticky top-0 z-50 border-b border-line">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
+          scrolled ? "ground-sand border-line" : "border-transparent bg-gradient-to-b from-black/55 to-transparent bg-origin-border text-sand"
+        }`}
+      >
         <Container className="grid h-[var(--header-h)] grid-cols-[1fr_auto_1fr] items-center">
           <button
             ref={menuButton}
@@ -62,7 +75,7 @@ export default function Header() {
             <span className="text-label">Menu</span>
           </button>
           <Link href="/" aria-label={`${site.camp.brand} ${site.camp.name}, home`} className="flex min-h-11 items-center">
-            <Logo />
+            <Logo variant={scrolled ? "dark" : "light"} />
           </Link>
           <div className="hidden justify-self-end md:block">
             <ButtonLink href={site.nav.cta.href} variant="gold">
