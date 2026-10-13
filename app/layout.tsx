@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable} antialiased`}>
       <body className="min-h-screen">
-        <a href="#main" className="text-label sr-only bg-sand p-4 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70]">
+        <a href="#main" className="text-label sr-only min-h-11 bg-sand p-4 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70]">
           Skip to content
         </a>
         <Header />

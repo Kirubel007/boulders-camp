@@ -5,7 +5,7 @@ import Logo from "./ui/Logo";
 import { Container } from "./ui/Section";
 import { Eyebrow } from "./ui/Typography";
 
-const link = "text-body inline-flex min-h-11 items-center hover:underline underline-offset-4";
+const link = "text-body inline-flex min-h-11 min-w-11 items-center hover:underline underline-offset-4";
 
 export default function Footer() {
   return (
