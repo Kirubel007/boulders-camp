@@ -1,4 +1,4 @@
-export type Ground = "sand" | "sand-2" | "ochre" | "navy" | "ink";
+export type Ground = "sand" | "sand-2" | "ochre" | "navy" | "night" | "ink";
 
 // Every section uses the same vertical rhythm and the same container.
 export function Section({

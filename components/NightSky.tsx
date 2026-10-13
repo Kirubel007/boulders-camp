@@ -22,12 +22,12 @@ export default function NightSky({
   cta: { label: string; href: string };
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="ground-navy relative flex min-h-[min(90svh,880px)] items-end overflow-hidden">
+    <section id={id} aria-labelledby={`${id}-title`} className="ground-night relative flex min-h-[min(90svh,880px)] items-end overflow-hidden">
       <Image src={image.src} alt={image.alt} fill sizes="100vw" loading="lazy" className="object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/10" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" aria-hidden="true" />
       <Container className="py-section relative">
         <Reveal>
-          <SectionHeading id={`${id}-title`} eyebrow={eyebrow} title={title} intro={body} align="center" />
+          <SectionHeading id={`${id}-title`} eyebrow={eyebrow} title={title} intro={body} align="center" className="text-glow" />
           <div className="mt-10 text-center">
             <ButtonLink href={cta.href} variant="outline">
               {cta.label}

@@ -9,7 +9,7 @@ const link = "text-body inline-flex min-h-11 min-w-11 items-center hover:underli
 
 export default function Footer() {
   return (
-    <footer className="ground-ink pb-[calc(88px+env(safe-area-inset-bottom))] pt-16 md:pb-12 md:pt-20">
+    <footer className="ground-night pb-[calc(88px+env(safe-area-inset-bottom))] pt-16 md:pb-12 md:pt-20">
       <Container>
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-4">

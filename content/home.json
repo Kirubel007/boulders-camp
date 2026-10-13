@@ -3,18 +3,47 @@
     "eyebrow": "Wolwedans · NamibRand Nature Reserve",
     "title": "Where the silence begins",
     "line": "Five tented suites at the foot of a granite outcrop, in the deep south of Namibia's NamibRand.",
-    "image": {
-      "src": "/images/hero-boulders.webp",
-      "alt": "Tented suites beneath giant orange granite boulders at Boulders Camp"
-    },
+    "slides": [
+      {
+        "src": "/images/hero-boulders.webp",
+        "alt": "Tented suites beneath giant orange granite boulders at Boulders Camp",
+        "caption": "Suites beneath the granite"
+      },
+      {
+        "src": "/images/morning-coffee.webp",
+        "alt": "Two guests sharing coffee beside a Land Rover at sunrise",
+        "caption": "Coffee at first light"
+      },
+      {
+        "src": "/images/camp-stone-circles.webp",
+        "alt": "The camp's stone-circle paths below a wall of granite boulders",
+        "caption": "Stone circles and boulders"
+      },
+      {
+        "src": "/images/camp-dusk.webp",
+        "alt": "Tents among red boulders at dusk, a lone mountain on the horizon",
+        "caption": "Dusk in the NamibRand"
+      },
+      {
+        "src": "/images/aerial-3.webp",
+        "alt": "Drone view of the granite hill with the camp at its base",
+        "caption": "An island of granite in the plains"
+      }
+    ],
     "cta": {
       "label": "Plan your stay",
       "href": "#plan"
     },
-    "scrollCue": "Scroll to discover"
+    "scrollCue": "Scroll to discover",
+    "pauseLabel": "Pause slideshow",
+    "playLabel": "Play slideshow"
   },
   "intro": {
-    "statement": "Three hours beyond our other camps, the desert gives way to granite and gravel plains. Out here, the loudest thing is the wind."
+    "statement": "Three hours beyond our other camps, the desert gives way to granite and gravel plains. Out here, the loudest thing is the wind.",
+    "image": {
+      "src": "/images/plains-outcrop.webp",
+      "alt": "Aerial view of the granite outcrop above endless gravel plains"
+    }
   },
   "arrive": {
     "eyebrow": "Arrive",
@@ -62,6 +91,61 @@
     },
     "swipeHint": "Swipe"
   },
+  "moments": {
+    "eyebrow": "Moments",
+    "title": "Fall for the quiet",
+    "intro": "Small things you will remember long after the dust has settled. Tap a photo to look closer.",
+    "items": [
+      {
+        "src": "/images/rock-lunch.webp",
+        "alt": "Guests at a long lunch table in the shade of huge rocks",
+        "caption": "Lunch in the shade of the rocks",
+        "ratio": "3/2"
+      },
+      {
+        "src": "/images/suite-deck-portrait.webp",
+        "alt": "Two chairs on a suite deck facing the plains in soft light",
+        "caption": "Your deck, your view",
+        "ratio": "4/5"
+      },
+      {
+        "src": "/images/fly-in.webp",
+        "alt": "A light aircraft on a desert airstrip",
+        "caption": "Arrive by light aircraft",
+        "ratio": "3/2"
+      },
+      {
+        "src": "/images/sundowners-portrait.webp",
+        "alt": "An ice bucket with drinks and a hat on red sand at sunset",
+        "caption": "Sundowners in the sand",
+        "ratio": "4/5"
+      },
+      {
+        "src": "/images/bathroom.webp",
+        "alt": "A double basin vanity with the open desert beyond the window",
+        "caption": "A bathroom with a view",
+        "ratio": "3/2"
+      },
+      {
+        "src": "/images/desert-drive-portrait.webp",
+        "alt": "A guide's hands on the wheel of an open vehicle crossing the desert",
+        "caption": "Out on a scenic drive",
+        "ratio": "4/5"
+      },
+      {
+        "src": "/images/camp-portrait.webp",
+        "alt": "A tented suite deck under a pale morning sky",
+        "caption": "Morning at camp",
+        "ratio": "4/5"
+      },
+      {
+        "src": "/images/star-bed-portrait.webp",
+        "alt": "A bed set out on a deck beneath a sky full of stars",
+        "caption": "A bed beneath the stars",
+        "ratio": "4/5"
+      }
+    ]
+  },
   "stars": {
     "eyebrow": "Antares star safari",
     "title": "Nothing between you and the Milky Way",
@@ -80,8 +164,8 @@
     "title": "A stay that gives back",
     "body": "Every night includes a per-person Sustainability Levy, linked to the Wolwedans “5 Cs”. It goes directly to the reserve, the Wolwedans Foundation and the people who keep this desert wild.",
     "image": {
-      "src": "/images/fat-bike.webp",
-      "alt": "The sun rising over red dunes and distant mountains in the NamibRand"
+      "src": "/images/landscape-plains.webp",
+      "alt": "Golden grass plains with distant mountains under a soft morning sky"
     },
     "partnersTitle": "In partnership with",
     "partners": [
@@ -126,7 +210,23 @@
         "author": "Placeholder guest",
         "origin": "South Africa"
       }
-    ]
+    ],
+    "image": {
+      "src": "/images/fat-bike.webp",
+      "alt": "The sun rising over red dunes and distant mountains"
+    }
+  },
+  "invite": {
+    "eyebrow": "Only 5 suites · max 10 guests",
+    "title": "Five suites. Ten guests. One sky.",
+    "cta": {
+      "label": "Plan your stay",
+      "href": "#plan"
+    },
+    "image": {
+      "src": "/images/star-bed.webp",
+      "alt": "A bed on an open deck glowing beneath a deep blue night sky"
+    }
   },
   "plan": {
     "eyebrow": "Plan your stay",

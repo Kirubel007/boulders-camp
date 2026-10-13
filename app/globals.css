@@ -15,7 +15,8 @@
   --color-muted: #655d57; /* secondary text on sand / sand-2 */
   --color-muted-ochre: #5a4636; /* secondary text on ochre */
   --color-gold: #c5a059; /* "Plan your stay" buttons, footer eyebrows, map pin. Ink text only. */
-  --color-navy: #2c3e50; /* stars section */
+  --color-navy: #2c3e50; /* optional accent */
+  --color-black: #000000; /* every dark area: photo overlays, night sky, footer */
   --color-teal: #3a5a58; /* optional small accents */
   --color-ash: #b5aba2; /* secondary text on ink */
 
@@ -64,6 +65,13 @@
   --soft: var(--color-sand-2);
   --line: rgb(242 230 208 / 0.18);
 }
+.ground-night {
+  --ground: var(--color-black);
+  --fg: var(--color-sand);
+  --eyebrow: var(--color-gold);
+  --soft: var(--color-ash);
+  --line: rgb(242 230 208 / 0.18);
+}
 .ground-ink {
   --ground: var(--color-ink);
   --fg: var(--color-sand);
@@ -75,6 +83,7 @@
 .ground-sand-2,
 .ground-ochre,
 .ground-navy,
+.ground-night,
 .ground-ink {
   background-color: var(--ground);
   color: var(--fg);
@@ -136,6 +145,12 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
+/* Soft black glow so white type pops off photographs */
+@utility text-glow {
+  text-shadow:
+    0 2px 24px rgb(0 0 0 / 0.55),
+    0 1px 3px rgb(0 0 0 / 0.35);
+}
 @utility measure {
   max-width: 60ch;
 }
@@ -174,6 +189,23 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+/* Slow cinematic zoom on hero and photo-band images */
+@keyframes kenburns {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 @keyframes rise {

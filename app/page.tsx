@@ -9,16 +9,20 @@ import Regeneration from "@/components/Regeneration";
 import Voices from "@/components/Voices";
 import Planner from "@/components/Planner";
 import FindUs from "@/components/FindUs";
+import Moments from "@/components/Moments";
+import Invite from "@/components/Invite";
 
-// Homepage: discovery → falling in love → enquiry. Grounds alternate sand / sand-2 / ochre, one navy night.
+// Homepage: discovery → falling in love → enquiry. Light grounds alternate with full-bleed photo bands and one black night.
 export default function Home() {
   return (
     <>
       <Hero {...home.hero} scrollTo="#intro" scrollLabel={home.hero.scrollCue} />
-      <Intro text={home.intro.statement} />
+      <Intro text={home.intro.statement} image={home.intro.image} />
       <Arrive />
       <Suites />
+      <Invite />
       <Day />
+      <Moments />
       <NightSky id="stars" {...home.stars} />
       <Regeneration />
       <Voices />
