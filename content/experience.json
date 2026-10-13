@@ -7,7 +7,14 @@
     "eyebrow": "The experience",
     "title": "A Day & Night at Boulders",
     "subtitle": "Everything here is included, except time. That you bring yourself.",
-    "image": { "src": "/images/aerial-2.webp", "alt": "Overhead view of the camp, its stone-circle paths and the fire pit" }
+    "image": {
+      "src": "/images/aerial-2.webp",
+      "alt": "Overhead view of the camp, its stone-circle paths and the fire pit"
+    },
+    "cta": {
+      "label": "Plan your stay",
+      "href": "/#plan"
+    }
   },
   "intro": "Days at Boulders follow the light. Early starts while the air is cool, long quiet afternoons, and evenings that end far from any city glow.",
   "included": {
@@ -15,10 +22,22 @@
     "onRequestTitle": "On request, arranged in advance"
   },
   "gallery": [
-    { "src": "/images/scenic-drive.webp", "alt": "Safari vehicle in golden grass beneath mountains" },
-    { "src": "/images/dune-picnic.webp", "alt": "Aerial view of a picnic beside a vehicle on red dunes" },
-    { "src": "/images/solitude.webp", "alt": "A woman with a flowing scarf on a dune at sunset" },
-    { "src": "/images/space-to-breathe.webp", "alt": "A lone figure standing on a vast open plain" }
+    {
+      "src": "/images/scenic-drive.webp",
+      "alt": "Safari vehicle in golden grass beneath mountains"
+    },
+    {
+      "src": "/images/dune-picnic.webp",
+      "alt": "Aerial view of a picnic beside a vehicle on red dunes"
+    },
+    {
+      "src": "/images/solitude.webp",
+      "alt": "A woman with a flowing scarf on a dune at sunset"
+    },
+    {
+      "src": "/images/space-to-breathe.webp",
+      "alt": "A lone figure standing on a vast open plain"
+    }
   ],
   "cta": {
     "title": "Your own day here starts with a message",
