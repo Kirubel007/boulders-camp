@@ -24,11 +24,13 @@
 
   --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
   --header-h: 64px;
+  --bar-h: calc(61px + env(safe-area-inset-bottom)); /* sticky mobile enquiry bar */
 }
 
 @media (min-width: 768px) {
   :root {
     --header-h: 80px;
+    --bar-h: 0px;
   }
 }
 
@@ -166,6 +168,24 @@ body {
 }
 
 /* ---------- Motion: subtle only ---------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -192,50 +212,5 @@ body {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* ---------- TEMPORARY: legacy aliases so un-migrated sections keep working mid-redesign. Delete when done. ---------- */
-@theme {
-  --color-granite: #2e2a27;
-  --color-stone: #655d57;
-  --color-ochre-dark: #8a4a1e;
-  --color-dusk: #c5a059;
-  --color-night: #2e2a27;
-  --color-sand-deep: #f2e6d0;
-}
-@utility eyebrow {
-  @apply text-label;
-}
-@utility btn {
-  @apply inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 text-label transition-colors;
-}
-@utility btn-primary {
-  @apply btn bg-gold text-ink;
-}
-@utility btn-ghost {
-  @apply btn border border-current;
-}
-@keyframes kenburns {
-  from {
-    transform: scale(1.06);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-@keyframes fadeup {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes twinkle {
-  50% {
-    opacity: 1;
   }
 }

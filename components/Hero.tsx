@@ -1,82 +1,53 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { home, site } from "@/lib/content";
 import Icon from "./Icon";
+import { ButtonLink } from "./ui/Button";
+import { Container } from "./ui/Section";
+import type { ImageRef } from "@/lib/content";
 
-const SLIDE_MS = 7000;
-
-// Cinematic hero: slow cross-fading, slowly zooming photographs in place of a video.
-export default function Hero() {
-  const { hero } = home;
-  const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
-
-  useEffect(() => {
-    if (!playing) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % hero.slides.length), SLIDE_MS);
-    return () => clearInterval(t);
-  }, [playing, hero.slides.length]);
-
+// Full-bleed still photo filling the screen below the header (svh, so the iOS address bar never cuts it).
+// Only dark area besides Stars and the footer: a gradient at the bottom so the white text stays readable.
+export default function Hero({
+  image,
+  eyebrow,
+  title,
+  line,
+  cta,
+  scrollTo,
+  scrollLabel,
+}: {
+  image: ImageRef;
+  eyebrow: string;
+  title: string;
+  line?: string;
+  cta?: { label: string; href: string };
+  scrollTo?: string;
+  scrollLabel?: string;
+}) {
   return (
-    <section className="relative flex h-svh min-h-[560px] flex-col overflow-hidden bg-night text-white" aria-label="Introduction">
-      {hero.slides.map((s, i) => (
-        <div
-          key={s.src}
-          className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${i === index ? "opacity-100" : "opacity-0"}`}
-          aria-hidden={i !== index}
-        >
-          <Image
-            src={s.src}
-            alt={s.alt}
-            fill
-            sizes="100vw"
-            preload={i === 0}
-            className={`object-cover ${playing ? "animate-[kenburns_14s_ease-out_both]" : ""}`}
-            key={i === index ? `active-${index}` : s.src}
-          />
-        </div>
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/65" />
+    <section className="relative flex h-[calc(100svh-var(--header-h)-var(--bar-h))] min-h-[480px] items-end overflow-hidden bg-ink">
+      <Image src={image.src} alt={image.alt} fill preload sizes="100vw" className="object-cover object-[50%_60%]" />
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" aria-hidden="true" />
 
-      <div className="relative flex flex-1 flex-col items-center justify-center px-6 text-center">
-        <p className="eyebrow animate-[fadeup_1.6s_var(--ease-calm)_0.2s_both]">{hero.eyebrow}</p>
-        <h1 className="mt-6 max-w-5xl animate-[fadeup_1.6s_var(--ease-calm)_0.4s_both] font-serif text-5xl font-light leading-[1.05] sm:text-7xl lg:text-8xl">
-          {hero.title}
-        </h1>
-        <p className="mt-6 max-w-xl animate-[fadeup_1.6s_var(--ease-calm)_0.7s_both] text-base text-white/90 md:text-lg">
-          {hero.subtitle}
-        </p>
-        <p className="eyebrow mt-8 animate-[fadeup_1.6s_var(--ease-calm)_0.9s_both] text-white/90">{site.scarcity}</p>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => setPlaying((p) => !p)}
-        aria-label={playing ? "Pause slideshow" : "Play slideshow"}
-        className="absolute right-5 top-24 flex size-10 items-center justify-center rounded-full border border-white/60 transition-colors hover:bg-white/15 md:right-10 md:top-28"
-      >
-        <Icon name={playing ? "pause" : "play"} className="size-4" strokeWidth={1.75} />
-      </button>
-
-      {/* Quick navigation row (Mandarin Oriental style) */}
-      <nav aria-label="Quick links" className="relative border-t border-white/20 pb-20 md:pb-0">
-        <ul className="mx-auto grid max-w-4xl grid-cols-4 md:grid-cols-5">
-          {hero.quickLinks.map((q) => (
-            <li key={q.href} className={q.href === "#regeneration" ? "hidden md:block" : undefined}>
-              <Link
-                href={q.href}
-                className="flex flex-col items-center gap-2 py-5 text-[0.6rem] uppercase tracking-[0.2em] text-white/85 transition-colors hover:text-white md:text-[0.65rem]"
-              >
-                <Icon name={q.icon} className="size-6" />
-                {q.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Container className="relative pb-12 text-center text-sand md:pb-20">
+        <p className="text-label animate-[rise_800ms_var(--ease-calm)_both]">{eyebrow}</p>
+        <h1 className="text-h1 mx-auto mt-4 max-w-[14ch] animate-[rise_800ms_var(--ease-calm)_120ms_both] text-balance md:mt-6">{title}</h1>
+        {line && (
+          <p className="text-lead measure mx-auto mt-5 animate-[rise_800ms_var(--ease-calm)_240ms_both] text-balance md:mt-6">{line}</p>
+        )}
+        {cta && (
+          <div className="mt-8 animate-[rise_800ms_var(--ease-calm)_360ms_both] md:mt-10">
+            <ButtonLink href={cta.href} variant="gold" className="w-full max-w-xs sm:w-auto">
+              {cta.label}
+            </ButtonLink>
+          </div>
+        )}
+        {scrollTo && (
+          <a href={scrollTo} className="mx-auto mt-10 hidden min-h-11 w-fit flex-col items-center gap-2 md:flex">
+            <span className="text-label">{scrollLabel}</span>
+            <Icon name="chevronDown" className="size-5" strokeWidth={1.25} />
+          </a>
+        )}
+      </Container>
     </section>
   );
 }

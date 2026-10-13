@@ -2,21 +2,24 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/content";
-import Nav from "@/components/Nav";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StickyEnquiry from "@/components/StickyEnquiry";
+import MobileBar from "@/components/MobileBar";
 
 // Brand fonts: an elegant light serif for headlines, a clean geometric sans for text.
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500"],
   style: ["normal", "italic"],
+  display: "swap",
 });
 
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
+  weight: ["300", "400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +29,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.seo.title,
     description: site.seo.description,
-    images: [site.seo.ogImage],
     type: "website",
   },
 };
@@ -35,13 +37,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable} antialiased`}>
       <body className="min-h-screen">
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-sand focus:p-3">
+        <a href="#main" className="text-label sr-only bg-sand p-4 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70]">
           Skip to content
         </a>
-        <Nav />
+        <Header />
         <main id="main">{children}</main>
         <Footer />
-        <StickyEnquiry />
+        <MobileBar />
       </body>
     </html>
   );
