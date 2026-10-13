@@ -6,17 +6,43 @@
   },
   "seo": {
     "title": "Boulders Camp · Wolwedans | Where the silence begins",
-    "description": "Five tented suites at the foot of a granite outcrop in the deep south of the NamibRand Nature Reserve, Namibia. Plan your stay and enquire directly with Wolwedans.",
-    "ogImage": "/images/hero-boulders.webp"
+    "description": "Five tented suites at the foot of a granite outcrop in the deep south of the NamibRand Nature Reserve, Namibia. Plan your stay and enquire directly with Wolwedans."
   },
   "nav": {
     "links": [
-      { "label": "Suites", "href": "/#suites" },
-      { "label": "Experience", "href": "/experience" },
-      { "label": "Stars", "href": "/#stars" },
-      { "label": "Regeneration", "href": "/#regeneration" }
+      {
+        "label": "Arrive",
+        "href": "/#arrive"
+      },
+      {
+        "label": "Suites",
+        "href": "/#suites"
+      },
+      {
+        "label": "A day here",
+        "href": "/#day"
+      },
+      {
+        "label": "Stars",
+        "href": "/#stars"
+      },
+      {
+        "label": "Regeneration",
+        "href": "/#regeneration"
+      },
+      {
+        "label": "The experience",
+        "href": "/experience"
+      },
+      {
+        "label": "Find us",
+        "href": "/#find-us"
+      }
     ],
-    "cta": { "label": "Plan your stay", "href": "/#plan" }
+    "cta": {
+      "label": "Plan your stay",
+      "href": "/#plan"
+    }
   },
   "contact": {
     "email": "reservations@wolwedans.com",
@@ -28,9 +54,18 @@
   "footer": {
     "statement": "Granite, silence and a sky full of stars.",
     "downloads": [
-      { "label": "Rates 2026 (PDF)", "href": "/docs/rates-2026.pdf" },
-      { "label": "Rates 2027 (PDF)", "href": "/docs/rates-2027.pdf" },
-      { "label": "Activities 2025–27 (PDF)", "href": "/docs/activity-sheet-2025-27.pdf" }
+      {
+        "label": "Rates 2026 (PDF)",
+        "href": "/docs/rates-2026.pdf"
+      },
+      {
+        "label": "Rates 2027 (PDF)",
+        "href": "/docs/rates-2027.pdf"
+      },
+      {
+        "label": "Activities 2025–27 (PDF)",
+        "href": "/docs/activity-sheet-2025-27.pdf"
+      }
     ],
     "credits": "All photography, logos and rate documents © Wolwedans, used for this prototype only.",
     "disclaimer": "Design prototype for the Creo Media assessment. No guest data is collected or stored, and no booking system is connected."

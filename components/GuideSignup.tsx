@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { home } from "@/lib/content";
-import Icon from "./Icon";
+import { buttonClass } from "./ui/Button";
 
 // Lead magnet: journey guide in exchange for an email. Front-end only, nothing is sent.
 export default function GuideSignup() {
@@ -12,17 +12,13 @@ export default function GuideSignup() {
   const [error, setError] = useState("");
 
   return (
-    <div className="mx-auto grid max-w-7xl items-center gap-8 border-b border-sand/10 px-5 pb-16 md:grid-cols-2 md:px-10">
+    <div className="grid gap-6 border-y border-line py-10 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-12">
       <div>
-        <p className="flex items-center gap-2 text-dusk">
-          <Icon name="download" className="size-5" />
-          <span className="eyebrow">Free download</span>
-        </p>
-        <h2 className="mt-3 font-serif text-3xl text-sand md:text-4xl">{guide.title}</h2>
-        <p className="mt-2 text-sm text-sand/70">{guide.body}</p>
+        <h2 className="text-h3">{guide.title}</h2>
+        <p className="text-body text-soft mt-2">{guide.body}</p>
       </div>
       {done ? (
-        <p className="text-sm text-sand" role="status">
+        <p className="text-body" role="status">
           {guide.success}
         </p>
       ) : (
@@ -34,23 +30,31 @@ export default function GuideSignup() {
             setError("");
             setDone(true);
           }}
-          className="flex flex-col gap-3 sm:flex-row"
         >
-          <label className="flex-1">
-            <span className="sr-only">Email address</span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
-              autoComplete="email"
-              className="w-full border-b border-sand/30 bg-transparent py-3 text-sand placeholder:text-sand/40 focus:border-dusk focus:outline-none"
-            />
-            {error && <span className="mt-2 block text-xs text-[#f0b48a]">{error}</span>}
-          </label>
-          <button type="submit" className="btn-primary self-start">
-            {guide.cta}
-          </button>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <label className="flex-1">
+              <span className="sr-only">Email address</span>
+              <input
+                type="email"
+                inputMode="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email"
+                autoComplete="email"
+                aria-invalid={!!error}
+                aria-describedby={error ? "guide-error" : undefined}
+                className="text-body min-h-11 w-full border border-line bg-transparent px-4 py-3 placeholder:text-ash focus:border-sand focus:outline-none"
+              />
+            </label>
+            <button type="submit" className={buttonClass("gold")}>
+              {guide.cta}
+            </button>
+          </div>
+          {error && (
+            <p id="guide-error" className="text-fine mt-2">
+              {error}
+            </p>
+          )}
         </form>
       )}
     </div>

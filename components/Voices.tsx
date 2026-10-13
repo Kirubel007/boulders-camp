@@ -1,28 +1,32 @@
 import { home } from "@/lib/content";
 import Reveal from "./Reveal";
+import { Container, Section } from "./ui/Section";
 
+// One quiet, centred row of short quotes (trust signal; marked as placeholders).
 export default function Voices() {
   const { voices } = home;
   return (
-    <section className="border-t border-granite/10 bg-sand-deep px-5 py-24 md:px-10 md:py-32" aria-labelledby="voices-title">
-      <div className="mx-auto max-w-7xl">
-        <p id="voices-title" className="eyebrow text-center text-ochre">
+    <Section ground="sand-2" labelledBy="voices-title">
+      <Container className="text-center">
+        <h2 id="voices-title" className="text-label text-eyebrow">
           {voices.eyebrow}
-        </p>
-        <ul className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10">
+        </h2>
+        <ul className="mt-10 grid gap-10 md:mt-12 md:grid-cols-3 md:gap-12">
           {voices.quotes.map((q, i) => (
             <li key={i}>
-              <Reveal delay={i * 150} className="text-center">
-                <blockquote className="font-serif text-2xl font-light italic leading-snug md:text-[1.7rem]">“{q.quote}”</blockquote>
-                <p className="eyebrow mt-5 text-[0.6rem] text-stone">
-                  {q.author} · {q.origin}
-                </p>
+              <Reveal>
+                <figure>
+                  <blockquote className="text-h3 font-normal italic text-balance">“{q.quote}”</blockquote>
+                  <figcaption className="text-label text-soft mt-5">
+                    {q.author} · {q.origin}
+                  </figcaption>
+                </figure>
               </Reveal>
             </li>
           ))}
         </ul>
-        <p className="mt-12 text-center text-xs text-stone/80">{voices.note}</p>
-      </div>
-    </section>
+        <p className="text-fine text-soft mt-10">{voices.note}</p>
+      </Container>
+    </Section>
   );
 }

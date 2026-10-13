@@ -1,65 +1,78 @@
 import Link from "next/link";
 import { site, whatsappHref } from "@/lib/content";
 import GuideSignup from "./GuideSignup";
+import Logo from "./ui/Logo";
+import { Container } from "./ui/Section";
+import { Eyebrow } from "./ui/Typography";
+
+const link = "text-body inline-flex min-h-11 items-center hover:underline underline-offset-4";
 
 export default function Footer() {
   return (
-    <footer className="bg-night pb-24 pt-20 text-sand/80 md:pb-12">
-      <GuideSignup />
-      <div className="mx-auto mt-16 grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-10">
-        <div className="md:col-span-5">
-          <p className="eyebrow text-dusk">{site.camp.brand}</p>
-          <p className="mt-2 font-serif text-4xl text-sand">{site.camp.name}</p>
-          <p className="mt-4 max-w-sm font-serif text-xl italic">{site.footer.statement}</p>
-          <p className="eyebrow mt-6 text-dusk">{site.scarcity}</p>
-        </div>
+    <footer className="ground-ink pb-[calc(88px+env(safe-area-inset-bottom))] pt-16 md:pb-12 md:pt-20">
+      <Container>
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-4">
+            <Link href="/" aria-label="Home" className="inline-flex">
+              <Logo variant="light" size="lg" />
+            </Link>
+            <p className="text-body text-soft mt-6 max-w-xs">{site.footer.statement}</p>
+          </div>
 
-        <div className="md:col-span-3">
-          <p className="eyebrow text-dusk">Reservations</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a href={`mailto:${site.contact.email}`} className="hover:text-sand">
-                {site.contact.email}
-              </a>
-            </li>
-            <li>
-              <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-sand">
-                {site.contact.phone}
-              </a>
-            </li>
-            <li>
-              <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="hover:text-sand">
-                WhatsApp us
-              </a>
-            </li>
-          </ul>
-        </div>
+          <nav aria-label="Footer" className="md:col-span-3">
+            <Eyebrow>Explore</Eyebrow>
+            <ul className="mt-3">
+              {site.nav.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={link}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="md:col-span-4">
-          <p className="eyebrow text-dusk">Explore</p>
-          <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
-            {site.nav.links.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="hover:text-sand">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            {site.footer.downloads.map((d) => (
-              <li key={d.href} className="col-span-2">
-                <a href={d.href} target="_blank" rel="noopener noreferrer" className="hover:text-sand">
-                  {d.label}
+          <div className="md:col-span-5">
+            <Eyebrow>Reservations</Eyebrow>
+            <ul className="mt-3">
+              <li>
+                <a href={`mailto:${site.contact.email}`} className={link}>
+                  {site.contact.email}
                 </a>
               </li>
-            ))}
-          </ul>
+              <li>
+                <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className={link}>
+                  {site.contact.phone}
+                </a>
+              </li>
+              <li>
+                <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={link}>
+                  WhatsApp
+                </a>
+              </li>
+            </ul>
+            <Eyebrow className="mt-8">Downloads</Eyebrow>
+            <ul className="mt-3">
+              {site.footer.downloads.map((d) => (
+                <li key={d.href}>
+                  <a href={d.href} target="_blank" rel="noopener noreferrer" className={link}>
+                    {d.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div className="mx-auto mt-16 max-w-7xl space-y-2 border-t border-sand/10 px-5 pt-6 text-xs text-sand/50 md:px-10">
-        <p>{site.footer.credits}</p>
-        <p>{site.footer.disclaimer}</p>
-      </div>
+        <div className="mt-12">
+          <GuideSignup />
+        </div>
+
+        <div className="text-fine text-soft mt-8 space-y-2">
+          <p>{site.footer.credits}</p>
+          <p>{site.footer.disclaimer}</p>
+        </div>
+      </Container>
     </footer>
   );
 }

@@ -1,15 +1,15 @@
-import { home } from "@/lib/content";
 import Reveal from "./Reveal";
+import { Container, Section } from "./ui/Section";
 
-export default function Intro() {
+// One centred serif statement with plenty of space around it.
+export default function Intro({ text }: { text: string }) {
   return (
-    <section className="px-5 py-28 md:py-40">
-      <Reveal className="mx-auto max-w-4xl text-center">
-        <span className="mx-auto mb-10 block h-14 w-px bg-dusk" aria-hidden="true" />
-        <p className="font-serif text-3xl font-light leading-snug text-granite md:text-5xl md:leading-tight">
-          {home.intro.statement}
-        </p>
-      </Reveal>
-    </section>
+    <Section id="intro" ground="sand">
+      <Container>
+        <Reveal>
+          <p className="text-h2 mx-auto max-w-[26ch] text-balance text-center">{text}</p>
+        </Reveal>
+      </Container>
+    </Section>
   );
 }

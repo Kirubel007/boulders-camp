@@ -2,48 +2,16 @@
   "hero": {
     "eyebrow": "Wolwedans · NamibRand Nature Reserve",
     "title": "Where the silence begins",
-    "subtitle": "Five tented suites at the foot of a granite outcrop, in the deep south of Namibia's NamibRand.",
-    "slides": [
-      {
-        "src": "/images/hero-boulders.webp",
-        "alt": "Tented suites beneath giant orange granite boulders at Boulders Camp"
-      },
-      {
-        "src": "/images/sunset.webp",
-        "alt": "Boulders Camp suites at dusk with a red mountain glowing behind"
-      },
-      {
-        "src": "/images/plains-outcrop.webp",
-        "alt": "Aerial view of the granite outcrop above endless gravel plains"
-      }
-    ],
-    "quickLinks": [
-      {
-        "label": "Suites",
-        "href": "#suites",
-        "icon": "tent"
-      },
-      {
-        "label": "A day here",
-        "href": "#day",
-        "icon": "sun"
-      },
-      {
-        "label": "Stars",
-        "href": "#stars",
-        "icon": "star"
-      },
-      {
-        "label": "Regeneration",
-        "href": "#regeneration",
-        "icon": "leaf"
-      },
-      {
-        "label": "Enquire",
-        "href": "#plan",
-        "icon": "mail"
-      }
-    ]
+    "line": "Five tented suites at the foot of a granite outcrop, in the deep south of Namibia's NamibRand.",
+    "image": {
+      "src": "/images/hero-boulders.webp",
+      "alt": "Tented suites beneath giant orange granite boulders at Boulders Camp"
+    },
+    "cta": {
+      "label": "Plan your stay",
+      "href": "#plan"
+    },
+    "scrollCue": "Scroll to discover"
   },
   "intro": {
     "statement": "Three hours beyond our other camps, the desert gives way to granite and gravel plains. Out here, the loudest thing is the wind."
@@ -52,39 +20,34 @@
     "eyebrow": "Arrive",
     "title": "The most remote Wolwedans camp",
     "body": "Boulders sits at the base of a granite outcrop in the far south of the NamibRand Nature Reserve. Massive mountains rise behind the camp. In front, gravel plains run to the horizon, broken only by the tips of submerged mountains.",
-    "stats": [
+    "facts": [
       {
-        "value": "3 hrs",
-        "label": "south of the other Wolwedans camps"
+        "label": "By air",
+        "value": "Charter to Aandster airstrip, 30 min to camp"
       },
       {
-        "value": "5",
-        "label": "tented suites"
+        "label": "By road",
+        "value": "6–7 hrs from Windhoek to Wolwedans"
       },
       {
-        "value": "10",
-        "label": "guests at most"
+        "label": "Suites",
+        "value": "5 tented suites"
+      },
+      {
+        "label": "Guests",
+        "value": "10 at most"
       }
     ],
-    "images": [
-      {
-        "src": "/images/aerial-3.webp",
-        "alt": "Drone view of the boulder hill with the camp at its base in open desert"
-      },
-      {
-        "src": "/images/suite-deck.webp",
-        "alt": "A suite deck with chairs looking out over the plains"
-      }
-    ]
+    "image": {
+      "src": "/images/aerial-3.webp",
+      "alt": "Drone view of the boulder hill with the camp at its base in open desert"
+    }
   },
   "suites": {
     "eyebrow": "Stay",
     "title": "Five suites, open to the desert",
     "body": "Each one has a spacious deck, a room that opens on three sides to the afternoon breeze, a separate bathroom and a sala for siestas.",
-    "background": {
-      "src": "/images/camp-stone-circles.webp",
-      "alt": ""
-    }
+    "cta": "Enquire about"
   },
   "day": {
     "eyebrow": "A day at Boulders",
@@ -92,7 +55,12 @@
     "cta": {
       "label": "Explore a day & night at Boulders",
       "href": "/experience"
-    }
+    },
+    "image": {
+      "src": "/images/camp-dawn.webp",
+      "alt": "Boulders Camp tents and stone-circle paths at dawn, a red mountain behind"
+    },
+    "swipeHint": "Swipe"
   },
   "stars": {
     "eyebrow": "Antares star safari",
@@ -101,6 +69,10 @@
     "cta": {
       "label": "Plan a night under these stars",
       "href": "#plan"
+    },
+    "image": {
+      "src": "/images/night-sky.webp",
+      "alt": "The Milky Way arching over a softly lit desert lodge at night"
     }
   },
   "regeneration": {
@@ -166,5 +138,30 @@
     "body": "Getting there, what to pack and the best months for stars. Free, by email.",
     "cta": "Send me the guide",
     "success": "Thank you. In the real site, the guide would now be on its way to your inbox."
+  },
+  "findUs": {
+    "eyebrow": "Find us",
+    "title": "Deep in the NamibRand",
+    "body": "Boulders Camp lies in the far south of the NamibRand Nature Reserve, about three hours beyond the other Wolwedans camps. Fly by charter to Aandster airstrip, 30 minutes by road from camp, or drive 6 to 7 hours from Windhoek or Swakopmund to Wolwedans on well-kept gravel roads.",
+    "facts": [
+      {
+        "label": "Reserve",
+        "value": "NamibRand, Namibia"
+      },
+      {
+        "label": "Airstrip",
+        "value": "Aandster"
+      }
+    ],
+    "map": {
+      "lat": -25.3304383,
+      "lng": 15.976672,
+      "zoom": 9,
+      "title": "Map showing Wolwedans Boulders Camp in the NamibRand Nature Reserve",
+      "loadLabel": "Load map",
+      "placeholder": "The map loads from Google only when you ask for it."
+    },
+    "openLabel": "Open in Google Maps",
+    "directionsLabel": "Directions"
   }
 }
