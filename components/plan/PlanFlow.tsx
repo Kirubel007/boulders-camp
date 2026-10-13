@@ -243,7 +243,7 @@ export default function PlanFlow() {
         <Image src={c.image.src} alt={c.image.alt} fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
         <header className="relative">
-          <Container className="flex h-[var(--header-h)] items-center justify-between">
+          <Container wide className="flex h-[var(--header-h)] items-center justify-between">
             <Link href="/" aria-label="Boulders Camp home" className="flex min-h-11 items-center">
               <Logo variant="light" />
             </Link>
@@ -282,7 +282,7 @@ export default function PlanFlow() {
   return (
     <div className="ground-sand flex min-h-svh flex-col">
       <header className="sticky top-0 z-30 border-b border-line bg-sand">
-        <Container className="flex h-[var(--header-h)] items-center justify-between">
+        <Container wide className="flex h-[var(--header-h)] items-center justify-between">
           <Link href="/" aria-label="Boulders Camp home" className="flex min-h-11 items-center">
             <Logo />
           </Link>

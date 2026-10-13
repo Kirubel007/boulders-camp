@@ -21,6 +21,7 @@ export function Section({
   );
 }
 
-export function Container({ className = "", children }: { className?: string; children: React.ReactNode }) {
-  return <div className={`mx-auto w-full max-w-[1280px] px-6 md:px-12 ${className}`}>{children}</div>;
+// `wide` spans the full viewport (same gutters) — used for headers that sit over full-bleed imagery.
+export function Container({ className = "", wide = false, children }: { className?: string; wide?: boolean; children: React.ReactNode }) {
+  return <div className={`mx-auto w-full ${wide ? "" : "max-w-[1280px]"} px-6 md:px-12 ${className}`}>{children}</div>;
 }

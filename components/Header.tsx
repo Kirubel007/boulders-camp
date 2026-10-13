@@ -63,7 +63,7 @@ export default function Header() {
           scrolled ? "ground-sand border-line" : "border-transparent bg-gradient-to-b from-black/55 to-transparent bg-origin-border text-sand"
         }`}
       >
-        <Container className="grid h-[var(--header-h)] grid-cols-[1fr_auto_1fr] items-center">
+        <Container wide className="grid h-[var(--header-h)] grid-cols-[1fr_auto_1fr] items-center">
           <button
             ref={menuButton}
             type="button"
@@ -96,7 +96,7 @@ export default function Header() {
           className="ground-sand fixed inset-0 z-[60] flex animate-[fade-in_300ms_ease-out] flex-col overflow-y-auto"
         >
           <div className="border-b border-line">
-            <Container className="grid h-[var(--header-h)] grid-cols-[1fr_auto_1fr] items-center">
+            <Container wide className="grid h-[var(--header-h)] grid-cols-[1fr_auto_1fr] items-center">
               <button type="button" onClick={close} className="-ml-2 flex min-h-11 items-center gap-3 justify-self-start px-2">
                 <Icon name="close" className="size-5" strokeWidth={1.5} />
                 <span className="text-label">Close</span>
